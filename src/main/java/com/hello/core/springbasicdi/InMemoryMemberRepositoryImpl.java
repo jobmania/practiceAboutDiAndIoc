@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class MemberRepositoryImpl implements MemberRepository {
+public class InMemoryMemberRepositoryImpl implements MemberRepository {
 
 
     private static Map<Long, Member> store = new HashMap<>();
