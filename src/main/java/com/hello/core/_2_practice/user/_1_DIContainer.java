@@ -1,4 +1,4 @@
-package com.hello.core._2_practice;
+package com.hello.core._2_practice.user;
 
 import com.hello.core._2_practice.user.InMemoryUserDao;
 import com.hello.core._2_practice.user.UserService;

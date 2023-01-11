@@ -1,14 +1,10 @@
 package com.hello.core._2_user;
 
-import com.hello.core._2_practice._1_DIContainer;
-import com.hello.core._2_practice.user.InMemoryUserDao;
 import com.hello.core._2_practice.user.User;
 import com.hello.core._2_practice.user.UserDao;
 import com.hello.core._2_practice.user.UserService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashSet;
 
 public class UserTest {
     @Test
