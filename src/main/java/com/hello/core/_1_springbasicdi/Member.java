@@ -1,10 +1,10 @@
-package com.hello.core.springbasicdi;
+package com.hello.core._1_springbasicdi;
 
 public class Member {
     Long Id;
-    Long name;
+    String name;
 
-    public Member(Long id, Long name) {
+    public Member(Long id, String  name) {
         Id = id;
         this.name = name;
     }
@@ -18,11 +18,11 @@ public class Member {
         Id = id;
     }
 
-    public Long getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Long name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

@@ -1,4 +1,4 @@
-package com.hello.core.springbasicdi;
+package com.hello.core._1_springbasicdi;
 
 import org.springframework.stereotype.Component;
 

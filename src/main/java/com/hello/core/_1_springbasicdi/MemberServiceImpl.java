@@ -1,4 +1,4 @@
-package com.hello.core.springbasicdi;
+package com.hello.core._1_springbasicdi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,7 @@ public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository;
 
-    @Autowired
+    @Autowired   // 주입.
     public MemberServiceImpl(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }

@@ -1,4 +1,4 @@
-package com.hello.core.springbasicdi;
+package com.hello.core._1_springbasicdi;
 
 public interface MemberRepository {
     void save(Member member);
