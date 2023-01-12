@@ -12,7 +12,6 @@ public class UserTest {
 
     UserService userService;
 
-
     @BeforeEach //테스트전
     public void beforeEach(){
         TestConfig testConfig = new TestConfig();
