@@ -1,5 +1,7 @@
 package com.hello.core._3_practice;
 
+import com.hello.core._3_practice.annotation.Component;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
@@ -9,7 +11,7 @@ public class DIContainer {
         T instance = createInstance(classType); // 인스턴스 생성
         Arrays.stream(classType.getDeclaredFields()) // 필드 루프
                 .forEach(field -> { // 각각의 필드에 대해서
-                    if (field.getAnnotation(Inject.class) != null) { // 필드에 Inject 어노테이션이 붙은 것 찾기
+                    if (field.getAnnotation(Component.class) != null) { // 필드에 Component 어노테이션이 붙은 것 찾기
                         Object fieldInstance = createInstance(field.getType());  //필드 타입 생성.
                         field.setAccessible(true); // private 접근 허용
                         try {

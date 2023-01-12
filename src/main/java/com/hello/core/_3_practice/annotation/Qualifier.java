@@ -1,4 +1,4 @@
-package com.hello.core._4_practice.di_framework.annotation;
+package com.hello.core._3_practice.annotation;
 
 import java.lang.annotation.*;
 

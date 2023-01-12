@@ -1,4 +1,4 @@
-package com.hello.core._3_practice;
+package com.hello.core._3_practice.service;
 
 import com.hello.core._2_practice.user.User;
 
