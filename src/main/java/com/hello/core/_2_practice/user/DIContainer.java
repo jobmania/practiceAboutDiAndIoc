@@ -18,14 +18,13 @@ import java.util.Set;
 
 public class DIContainer {
 
-    private final Set<Object> beans ;
+    private final Set<Object> beans ; // 중복없이 담을 컨테이너...
 
     public DIContainer(final Set<Class<?>> classes){
         this.beans = creatBeans(classes);
-        this.beans.forEach(this::setFields);
     }
 
-    //객체 생성..
+    //Reflection을 이용해서 클래스 정보를 통해서 인스턴스를 생성
     private Set<Object> creatBeans(final Set<Class<?>> classes) {
         Set<Object> beans = new HashSet<>();
         for(Class<?> aClass : classes){
@@ -36,7 +35,7 @@ public class DIContainer {
 
     // 객체간의 관계를 정의하는 역할을 수행.. 받아온 인스턴스를 모두 beans 필드에 저장
     private Object createInstance(final Class<?> aClass) {
-        String className = aClass.getSimpleName();
+        String className = aClass.getSimpleName(); //패키지 경로가 포함되지 않은 클래스명만 추출
         if (className.equals("UserService")) {
             return new UserService(new UserRepositoryImpl());
         }
@@ -47,29 +46,6 @@ public class DIContainer {
         throw new IllegalArgumentException("해당 클래스로 빈을 등록할 수 없습니다.");
     }
 
-    private void setFields(final Object bean) {
-        final Field[] fields = bean.getClass().getDeclaredFields();
-
-        for(Field field : fields){
-            setBeanField(bean,field);
-        }
-
-    }
-
-    private void setBeanField(final Object bean, final Field field) {
-        try {
-            field.setAccessible(true);
-            final Class<?> fieldType = field.getType();
-            for (Object o : beans){
-                if(fieldType.isAssignableFrom(o.getClass())){
-                    field.set(bean,o);
-                }
-            }
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 
 
 

@@ -18,11 +18,15 @@ public class DIContainer {
         this.beans.forEach(this::setFields);
     }
 
+
+    /**
+     * 특정 패키지 아래에 존재하는 지정한 어노테이션이 붙어 있는 모든 클래스들을 찾아,
+     * 이를 이용해서 빈을 등록하도록 구성.
+    * */
     public static DIContainer createContainerForPackage(final String rootPackageName){
         final Set<Class<?>> allClassesInPackage = ClassPathScanner.getClassesInPackage(rootPackageName);
         return new DIContainer(allClassesInPackage);
     }
-
 
 
 
@@ -46,8 +50,9 @@ public class DIContainer {
       }
     }
 
+    //객체의 모든 필드를 리플렉션을 사용하여 가져옴.
     private void setFields(final Object bean) {
-        final Field[] fields = bean.getClass().getDeclaredFields();
+        final Field[] fields = bean.getClass().getDeclaredFields();  // 필드 정보 조회
 
         for(Field field : fields){
             setBeanField(bean,field);
@@ -55,6 +60,7 @@ public class DIContainer {
 
     }
 
+    //빈들 중에서 할당 가능한 빈이 있을 경우 해당 빈을 등록해주는 것이다.
     private void setBeanField(final Object bean, final Field field) {
         try {
             field.setAccessible(true);
@@ -67,6 +73,7 @@ public class DIContainer {
 
     }
 
+    // @Autowired 어노테이션이 붙어 있는 필드에 대해서만 주입을 진행
     private boolean hasInjectAnnotation(Field field) {
         return field.isAnnotationPresent(Autowired.class);
     }
