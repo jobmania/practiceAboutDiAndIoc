@@ -1,12 +1,11 @@
-package com.hello.core._3_practice.repository;
+package com.hello.core._2_practice.user;
 
-import com.hello.core._2_practice.user.User;
-import com.hello.core._3_practice.annotation.Component;
+import com.hello.core._1_springbasicdi.Member;
 
 import java.util.HashMap;
 import java.util.Map;
-@Component
-public class UserRepositoryImpl implements UserRepository {
+
+public class UserRepositoryImpl implements UserRepository{
 
     private static Map<Long, User> store = new HashMap<>();
 
