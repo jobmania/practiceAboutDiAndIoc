@@ -20,7 +20,7 @@ public class Test {
         memberService.join(member);
 
         Member findMember = memberService.findById(1L);
-        Assertions.assertThat(findMember.getId()).isEqualTo(1L);
+        Assertions.assertThat(findMember.getName()).isEqualTo("BBC");
 
     }
 }

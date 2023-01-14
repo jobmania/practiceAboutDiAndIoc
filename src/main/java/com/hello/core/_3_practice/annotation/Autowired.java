@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * Service field variables should use this annotation
  */
-@Target({ ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD })
+@Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 /**

@@ -22,7 +22,7 @@ public class Test {
         userService.save(user);
         User findUser = userService.findById(1L);
 
-        Assertions.assertThat(findUser.getId()).isEqualTo(1L);
+        Assertions.assertThat(findUser.getName()).isEqualTo("John");
 
     }
 

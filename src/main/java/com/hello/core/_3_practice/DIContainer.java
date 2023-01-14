@@ -18,7 +18,6 @@ public class DIContainer {
         this.beans.forEach(this::setFields);
     }
 
-
     /**
      * 특정 패키지 아래에 존재하는 지정한 어노테이션이 붙어 있는 모든 클래스들을 찾아,
      * 이를 이용해서 빈을 등록하도록 구성.
@@ -43,7 +42,7 @@ public class DIContainer {
     private Object createInstance(final Class<?> aClass) {
       try{
           final Constructor<?> constructor = aClass.getDeclaredConstructor();
-          constructor.setAccessible(true);
+          constructor.setAccessible(true); // private 에 대한 접근을 열어준다.
           return constructor.newInstance();
       } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
           throw new RuntimeException(e);

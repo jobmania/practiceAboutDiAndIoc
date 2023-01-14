@@ -17,14 +17,10 @@ import java.util.Set;
 
 
 public class DIContainer {
-
     private final Set<Object> beans ; // 중복없이 담을 컨테이너...
-
     public DIContainer(final Set<Class<?>> classes){
         this.beans = creatBeans(classes);
     }
-
-    //Reflection을 이용해서 클래스 정보를 통해서 인스턴스를 생성
     private Set<Object> creatBeans(final Set<Class<?>> classes) {
         Set<Object> beans = new HashSet<>();
         for(Class<?> aClass : classes){
@@ -46,9 +42,6 @@ public class DIContainer {
         throw new IllegalArgumentException("해당 클래스로 빈을 등록할 수 없습니다.");
     }
 
-
-
-
     // 빈 컨텍스트(DI)에서 관리하는 빈을 찾아서 반환한다.
     @SuppressWarnings("unchecked")
     public <T> T getBean(final Class<T> aClass) {
@@ -57,6 +50,4 @@ public class DIContainer {
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
     }
-
-
 }

@@ -17,9 +17,7 @@ public class Test {
 
         Assertions.assertThat(findUser.getId()).isEqualTo(1L);
 
-
     }
-
 
     private static DIContainer createDIContainer() {
         final var rootPackageName = User.class.getPackage().getName();
