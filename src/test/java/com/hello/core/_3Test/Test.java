@@ -1,7 +1,10 @@
 package com.hello.core._3Test;
 
+import com.hello.core._1_springbasicdi.AppConfig;
 import com.hello.core._3_practice.*;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Test {
 
@@ -15,7 +18,7 @@ public class Test {
 
         User findUser = userService.find(1L);
 
-        Assertions.assertThat(findUser.getId()).isEqualTo(1L);
+        Assertions.assertThat(findUser.getName()).isEqualTo("power");
 
     }
 

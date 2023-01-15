@@ -1,6 +1,5 @@
 package com.hello.core._2_practice.user;
 
-import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,8 +31,8 @@ public class DIContainer {
     // 객체간의 관계를 정의하는 역할을 수행.. 받아온 인스턴스를 모두 beans 필드에 저장
     private Object createInstance(final Class<?> aClass) {
         String className = aClass.getSimpleName(); //패키지 경로가 포함되지 않은 클래스명만 추출
-        if (className.equals("UserService")) {
-            return new UserService(new UserRepositoryImpl());
+        if (className.equals("UserServiceImpl")) {
+            return new UserServiceImpl(new UserRepositoryImpl());
         }
 
         if (className.equals("UserRepositoryImpl")) {

@@ -1,9 +1,6 @@
 package com.hello.core._2_Test;
 
-import com.hello.core._2_practice.user.DIContainer;
-import com.hello.core._2_practice.user.User;
-import com.hello.core._2_practice.user.UserRepositoryImpl;
-import com.hello.core._2_practice.user.UserService;
+import com.hello.core._2_practice.user.*;
 import org.assertj.core.api.Assertions;
 
 import java.util.HashSet;
@@ -30,7 +27,7 @@ public class Test {
         HashSet<Class<?>> classes = new HashSet<Class<?>>();
         // 빈으로 등록할 타입을 지정..
         classes.add(UserRepositoryImpl.class);
-        classes.add(UserService.class);
+        classes.add(UserServiceImpl.class);
         return new DIContainer(classes);
     }
 
