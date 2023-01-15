@@ -41,7 +41,7 @@ public class DIContainer {
     // 객체간의 관계를 정의하는 역할을 수행.. 받아온 인스턴스를 모두 beans 필드에 저장
     private Object createInstance(final Class<?> aClass) {
       try{
-          final Constructor<?> constructor = aClass.getDeclaredConstructor();
+          final Constructor<?> constructor = aClass.getDeclaredConstructor();  // 생성자를 통한 객체생성.
           constructor.setAccessible(true); // private 에 대한 접근을 열어준다.
           return constructor.newInstance();
       } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
@@ -51,8 +51,8 @@ public class DIContainer {
 
     //객체의 모든 필드를 리플렉션을 사용하여 가져옴.
     private void setFields(final Object bean) {
-        final Field[] fields = bean.getClass().getDeclaredFields();  // 필드 정보 조회
-
+        final Field[] fields = bean.getClass().getDeclaredFields();  //  접근제어자 상관없이 필드 정보 조회
+                                                                 // 클래스에 정의된 필드들의 정보들을 필드타입을 받아옴..
         for(Field field : fields){
             setBeanField(bean,field);
         }
@@ -63,18 +63,13 @@ public class DIContainer {
     private void setBeanField(final Object bean, final Field field) {
         try {
             field.setAccessible(true);
-            if (hasInjectAnnotation(field)) {
-                field.set(bean, getBean(field.getType()));
+            if (field.getAnnotation(Autowired.class) != null) {  // @Autowired 어노테이션이 붙어 있는 필드에 대해서만 주입을 진행
+                field.set(bean, getBean(field.getType()));  // 해당 빈에 필드 인스턴스들을 주입..
             }
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         }
 
-    }
-
-    // @Autowired 어노테이션이 붙어 있는 필드에 대해서만 주입을 진행
-    private boolean hasInjectAnnotation(Field field) {
-        return field.isAnnotationPresent(Autowired.class);
     }
 
 
