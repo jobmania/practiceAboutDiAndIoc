@@ -3,11 +3,11 @@
 
 # 리플렉션을 통한 스프링 IOC 컨테이너 구현 입니다.
 
-1.  기존의 스프링 IOC 
+## 1.  기존의 스프링 IOC 
 
-2. CLASS 이름으로 구현
+## 2. CLASS 이름으로 구현
 
-3. 어노테이션을 통한 구현
+## 3. 어노테이션을 통한 구현
 ![image](https://user-images.githubusercontent.com/108961843/226404299-584db612-b804-45de-a8bf-fdac390d4c23.png)
 
 
