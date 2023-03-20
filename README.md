@@ -1,7 +1,7 @@
 # practiceAboutDiAndIoc
 
 
-# 리플렉션을 통한 IOC 컨테이너 구현 입니다.
+# 리플렉션을 통한 스프링 IOC 컨테이너 구현 입니다.
 
 1.  기존의 스프링 IOC 
 
